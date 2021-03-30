@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El tiempo</title>
+    <meta name="description" content="El tiempo WebApp">
+    <meta name="keywords" content="El tiempo, WebApp">
+    <meta name="author" content="Javier Mallén">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css"> 
+</head>
+<body>
+    <!-- Loader -->
+    <!-- La idea es primero cargar es loader y cuando la página se cargue lo esconderemos -->
+    <div id="loader" class="lds-spinner centrado"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <main hidden>
+        <button class="ripple btn-menu" id="btn-menu">
+            <img class="tamaño-28" src="./assets/img/iconos/menu.png" alt="">
+        </button>
+        <section class="tiempo-actual" id="tiempo-actual">
+            <div class="contenedor-ciudad alinear-flex">
+                <div class="localizacion">
+                    <h1 class="localizacion-label">Alcañiz</h1>
+                </div>
+                <div class="vacio"></div>
+            </div>
+            <div class="temperatura alinear-flex">
+                <div class="icono-tiempo" id="icono-tiempo">
+                    <img src="./assets/img/summary-icons/clear-day-white.png" alt="">
+                </div>
+                <div class="temperatura-actual" id="temperatura-actual">
+                    <h2 class="grados" id="grados">25º</h2>
+                    <p class="resumen-tiempo" id="resumen-tiempo">Soleado</p>
+                </div>
+
+            </div>
+            <div class="humedad-viento alinear-flex">
+                <div class="humedad" id="humedad">
+                    <img class="tamaño-25" src="./assets/img/iconos/humidity.png" alt="">
+                    <span>20%</span>
+                </div>
+                <div class="viento" id="viento">
+                    <img class="tamaño-25" src="./assets/img/iconos/wind-speed-flag.png" alt="">
+                    <span>3.73 m/h</span>
+                </div>
+            </div>
+        </section>
+        <section class="inferior">
+            <button class="ripple btn-toggle centrado_x" id="btn-toggle">
+                <img id="flecha" src="./assets/img/iconos/up-arrow.png" alt="">
+            </button>
+            <!-- Temperatura de cada uno de los días -->
+            <div class="temperatura-diaria" id="temperatura-diaria">
+                <!-- La clase día actual la utilizamos para dibujar el circulo en el día actual -->
+                <div class="alinear-flex dia-temperatura dia-actual">
+                    <div class="dia">
+                        <h2>Sunday</h2>
+                    </div>
+                    <div class="alinear-flex">
+                        <div class="temperatura-dia">
+                            <p>18ª</p>
+                        </div>
+                        <div class="icono-dia">
+                            <img class="tamaño-30" src="./assets/img/summary-icons/clear-day-white.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Cuando hacemos clic al botón sale la temperatura por horas -->
+            <div class="temperatura-horas" id="temperatura-horas" visible="false">
+                <!-- La clase día actual la utilizamos para dibujar el circulo en el día actual -->
+                <div class="alinear-flex dia-temperatura dia-actual">
+                    <div class="dia">
+                        <h2>14:00</h2>
+                    </div>
+                    <div class="alinear-flex">
+                        <div class="temperatura-dia">
+                            <p>21ª</p>
+                        </div>
+                        <div class="icono-hora">
+                            <img class="tamaño-30 colorcico" src="./assets/img/summary-icons/clear-day-grey.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                
+
+        </section>
+        <section class="contenedor-menu" id="contenedor-menu">
+            <button class="btn-cerrar ripple" id="btn-cerrar">&#10006;</button>
+            <div class="opciones-menu">
+                <div class="add-localizacion">
+                    <input type="text" id="add-localizacion" name="add-localizacion" placeholder="Localización">
+                    <br>
+                    <button class="btn-add-ciudad ripple disabled" id="btn-add-ciudad" disabled>Añadir Ciudad</button>
+                    <h1 class="localizacion-label">Alcañiz</h1>
+                </div>
+                <div class="localizaciones-guardadas" id="localizaciones-guardadas">
+                    <div class="localidad-guardada alinear-flex">
+                        <div>
+                            <h2">Alcañiz</h2>
+                        </div>
+                        <div>
+                            <button class="ripple borrar-localizacion">-</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>

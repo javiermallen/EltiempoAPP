@@ -1,0 +1,429 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Efectos de los botones */
+.ripple {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    border: none;
+  }
+  .ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+  }
+  .ripple:active:after {
+    transform: scale(0, 0);
+    opacity: .2;
+    transition: 0s;
+  }
+/* Loader spinner */
+  .lds-spinner {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-spinner div {
+    transform-origin: 40px 40px;
+    animation: lds-spinner 1.2s linear infinite;
+  }
+  .lds-spinner div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 37px;
+    width: 6px;
+    height: 18px;
+    border-radius: 20%;
+    background: #2db0a2;
+  }
+  .lds-spinner div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -1.1s;
+  }
+  .lds-spinner div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -1s;
+  }
+  .lds-spinner div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.9s;
+  }
+  .lds-spinner div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.8s;
+  }
+  .lds-spinner div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.7s;
+  }
+  .lds-spinner div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.6s;
+  }
+  .lds-spinner div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.5s;
+  }
+  .lds-spinner div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.4s;
+  }
+  .lds-spinner div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.3s;
+  }
+  .lds-spinner div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.2s;
+  }
+  .lds-spinner div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.1s;
+  }
+  .lds-spinner div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+  }
+  @keyframes lds-spinner {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+/* Estilos generales */
+/* Tamaño de caja, que el padding y el borde sean parte de la caja
+ y que el usuario no pueda seleccionar nada */
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+/* Ocupamos todo el ancho y el alto de la pantalla */
+html, body, main {
+    height: 100%;
+    width: 100%;
+}
+body {
+    font-family: 'Lato', sans-serif;
+}
+/* ================================ Clases para tamaño ================================ */
+.tamaño-25 {
+  width: 25px;
+}
+.tamaño-28 {
+  width: 28px;
+}
+.tamaño-30 {
+  width: 30px;
+}
+/* ================================ Clases para centrar ================================ */
+/*  Posiciones absolute -> The element is positioned relative to its first positioned (not static) ancestor element 	
+fixed -> The element is positioned relative to the browser window 	
+relative -> The element is positioned relative to its normal position, so "left:20px" adds 20 pixels to the element's LEFT position */
+.centrado {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.centrado_x {
+  position: relative;
+  left: 50%;
+  transform: translateX(50%);
+}
+
+.centrado_y {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ocultar {
+  display: none;
+}
+.disabled {
+  background-color: #ddd !important;
+  color: grey !important;
+}
+/* Estilos del main - Cargamos la imagen de fondo */
+main {
+    background-image: url('../img/bg-images/clear-day.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* la cargamos desde la derecha */
+    background-position: 100% 100%;
+
+}
+/* Estilos del botón de menú */
+.btn-menu {
+  /* Le quitamos los colores */
+  background: transparent;
+  outline: transparent;
+  /* Lo ponemos a la derecha */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  z-index: 2;
+}
+/* Estilos de la sección tiempo actual */
+.tiempo-actual {
+  width: 100%;
+  height: 60%;
+  color: white;
+  /* Le ponemos una posición relativa para que después los elementos de dentro puedan tener una posición absoluta respecto al contenedor */
+  position: relative;
+  padding: 80px 20px 30px 20px;
+}
+/* Estilos de la localización */
+.localizacion-label {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+  margin-bottom: 50px;
+}
+/* Estilos de la temperatura actual */
+.alinear-flex {
+  width: 100%;
+  display: flex;  
+  align-items: center;
+}
+.icono-tiempo, .temperatura-actual, .localizacion, .vacio {
+  /* flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0; */
+  flex: 1 1 0;
+  text-align: center;
+}
+.grados {
+  font-size: 60px;
+  font-weight: 900;
+}
+.resumen-tiempo {
+  font-size: 30px;
+}
+.humedad-viento {
+  position: absolute;
+  bottom: 30px;
+  left: 0px;
+}
+.humedad, .viento {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0;
+  justify-content: center;
+}
+.humedad span, .viento span {
+  font-size: 30px;
+}
+/* Estilos de la sección tiempo inferior */
+.inferior {
+  width: 100%;
+  height: 40%;
+  color: white;
+  position: relative;
+  font-size: 20px;
+}
+.btn-toggle {
+  background-color: #353B48;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  z-index: 3;
+  box-shadow: 3px 0px 14px 2px rgba(000, 000, 000, .4);
+  /* Le ponemos posición absoluta para que se vaya a su sitio y lo desplazamos */
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.btn-toggle img {
+  /* Lo añadimos para hacer el cambio del botón en js */
+  transition: transform .5s;
+}
+.temperatura-diaria, .temperatura-horas {
+  width: 100%;
+  height: 100%;
+  padding: 50px 20px;
+  /* Aquí vamos a hacer scroll para ver las 24 horas */
+  overflow-y: scroll;
+}
+.temperatura-diaria {
+  background-color: rgba(000, 000, 000, .6);
+  /* Lo añadimos para hacer la transción entre dias y horas en js */
+  transition: opacity .5s;
+}
+.dia-temperatura {
+  position: relative;
+  margin-bottom: 15px;
+}
+.dia-temperatura > div, .temperatura-dia, .icono-dia, .icono-hora  {
+  flex: 1 1 0;
+  text-align: center;
+}
+.temperatura-dia {
+  text-align: right;
+}
+.dia-actual::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #353B48; 
+  left: 20px; 
+  top: 40%;
+}
+.temperatura-horas {
+  background-color: rgba(236, 240, 241, .6);
+  color: #636e72;
+  position: fixed;
+  /* Al pulsar el botón cambiaré esta propiedad, pero para que funcione correctamente
+  tengo que decirle que la altura va a ser del 40% */
+  height: 40%;
+  bottom: -100%;
+  transition: bottom .5s;
+}
+/* Estilos del menú */
+.contenedor-menu {
+  position: fixed;
+  top: 0px;
+  right: -65%;
+  width: 65%;
+  height: 100%;
+  z-index: 4;
+  color: #fff;
+  font-weight: 400;
+  transition: right .5s;
+}
+.opciones-menu {
+  background-color: rgba(53, 59, 72, 0.9);
+  width: 100%;
+  height: 100%;
+}
+.btn-cerrar {
+  position: absolute;
+  right: 0%;
+  background-color: transparent;
+  color: #fff;
+  font-size: 36px;
+  padding: 10px;
+}
+.add-localizacion {
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  padding: 60px 20px 0 20px;
+}
+#add-localizacion {
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #EE5253;
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1.2px;
+  padding-bottom: 5px;
+}
+#add-localizacion::placeholder {
+  color: #acacac;
+}
+.btn-add-ciudad {
+  background-color: #EE5253;
+  color: #fff;
+  padding: 7px 12px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  letter-spacing: 1.1px;
+  font-size: 16px;
+}
+.localizaciones-guardadas{
+  width: 100%;
+  height: 50%;
+  font-size: 18px;
+  padding: 10px 20px;
+  overflow-y: scroll;
+}
+.localidad-guardada {
+  border-bottom: 2px solid #7F8C8D;
+  padding-bottom: 8px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.localidad-guardada div:first-child{
+  flex: 5 5 0;
+}
+
+.localidad-guardada div:last-child{
+  text-align: right;
+}
+
+.borrar-localizacion{
+  color: #EE5253;
+  border: 2px solid #EE5253;
+  border-radius: 100%;
+  background-color: transparent;
+}
